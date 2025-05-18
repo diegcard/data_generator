@@ -26,6 +26,11 @@
     - [3. Relación entre Precio y Calificación de Calidad](#3-relación-entre-precio-y-calificación-de-calidad)
     - [4. Tecnologías de Pantalla por Segmento de Precio](#4-tecnologías-de-pantalla-por-segmento-de-precio)
     - [5. Mapa de Calor de Correlación](#5-mapa-de-calor-de-correlación)
+    - [6. Distribución Circular de Tecnologías de Pantalla](#6-distribución-circular-de-tecnologías-de-pantalla)
+    - [7. Distribución de Marcas](#7-distribución-de-marcas)
+    - [8. Distribución Circular de Resoluciones](#8-distribución-circular-de-resoluciones)
+    - [9. Distribución de Asistentes de Voz](#9-distribución-de-asistentes-de-voz)
+    - [10. Tendencia de Fabricación por Año](#10-tendencia-de-fabricación-por-año)
   - [🧪 Testing](#-testing)
   - [👤 Author](#-author)
   - [📄 License](#-license)
@@ -140,6 +145,7 @@ Generate visualizations to explore the dataset:
 
 ```bash
 python generate_visualizations.py
+python generate_additional_visualizations.py
 ```
 
 Visualizations are saved in the `visualizations/` directory:
@@ -174,6 +180,36 @@ Esta gráfica de barras apiladas muestra la distribución de tecnologías de pan
 
 Este mapa de calor visualiza las correlaciones entre variables numéricas en el conjunto de datos, ayudando a identificar relaciones fuertes entre diferentes atributos.
 
+### 6. Distribución Circular de Tecnologías de Pantalla
+
+![Distribución Circular de Tecnologías](visualizations/display_tech_pie.png)
+
+Este gráfico circular muestra la proporción de cada tecnología de pantalla en el conjunto de datos, destacando las tecnologías predominantes en el mercado.
+
+### 7. Distribución de Marcas
+
+![Distribución de Marcas](visualizations/brand_distribution.png)
+
+Este gráfico de barras horizontales muestra la distribución de televisores por marca, con porcentajes que permiten identificar rápidamente las marcas más representadas.
+
+### 8. Distribución Circular de Resoluciones
+
+![Distribución de Resoluciones](visualizations/resolution_pie.png)
+
+Este gráfico circular tipo "donut" muestra la proporción de cada resolución de pantalla en el conjunto de datos, permitiendo visualizar fácilmente las resoluciones más comunes.
+
+### 9. Distribución de Asistentes de Voz
+
+![Distribución de Asistentes de Voz](visualizations/voice_assistant_distribution.png)
+
+Este gráfico de barras muestra la distribución de asistentes de voz entre los televisores, mostrando qué asistentes son más comúnmente integrados.
+
+### 10. Tendencia de Fabricación por Año
+
+![Tendencia de Fabricación por Año](visualizations/manufacture_year_trend.png)
+
+Este gráfico de línea muestra la tendencia temporal de fabricación de televisores por año, permitiendo observar patrones y tendencias a lo largo del tiempo.
+
 
 
 <div align="center">
@@ -185,6 +221,11 @@ Este mapa de calor visualiza las correlaciones entre variables numéricas en el 
 | **Price vs. Quality** | Scatter plot of price vs. quality rating | `price_vs_rating.png` |
 | **Tech by Price Segment** | Stacked bar chart of display tech by price | `tech_by_price_segment.png` |
 | **Correlation Heatmap** | Heatmap of numeric attribute correlations | `correlation_heatmap.png` |
+| **Display Tech Pie Chart** | Pie chart of display technologies | `display_tech_pie.png` |
+| **Brand Distribution** | Horizontal bar chart of TV brands | `brand_distribution.png` |
+| **Resolution Pie Chart** | Donut chart of screen resolutions | `resolution_pie.png` |
+| **Voice Assistant Distribution** | Bar chart of voice assistants | `voice_assistant_distribution.png` |
+| **Manufacture Year Trend** | Line chart showing production trends by year | `manufacture_year_trend.png` |
 
 </div>
 
@@ -194,6 +235,8 @@ Este mapa de calor visualiza las correlaciones entre variables numéricas en el 
 <img src="visualizations/price_by_brand.png" alt="Price by Brand" width="80%">
 <img src="visualizations/screen_size_distribution.png" alt="Screen Size Distribution" width="80%">
 <img src="visualizations/price_vs_rating.png" alt="Price vs. Quality" width="80%">
+<img src="visualizations/display_tech_pie.png" alt="Display Tech Distribution" width="80%">
+<img src="visualizations/resolution_pie.png" alt="Resolution Distribution" width="80%">
 </div>
 </details>
 
@@ -224,7 +267,11 @@ py main.py --rows 100000 --format json --output television_data.json
 For Generate graphics
 
 ```bash
+# Basic visualizations
 py generate_visualizations.py
+
+# Additional visualizations including circular charts
+py generate_additional_visualizations.py
 ```
 ## 👤 Author
 
