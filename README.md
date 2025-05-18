@@ -1,136 +1,243 @@
-# Generador de Datos para Televisiones
+# 📺 Television Data Generator
 
-Un proyecto para generar datos sintéticos de televisiones, incluyendo características como marca, precio, calidad, tamaño y más. Diseñado para crear conjuntos de datos realistas que pueden ser utilizados en proyectos de análisis, visualización y aprendizaje automático.
+<div align="center">
 
-## Requisitos Mínimos
+![GitHub stars](https://img.shields.io/github/stars/[usuario]/data_generator?style=social)
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- Python 3.8 o superior
-- Pandas
-- NumPy
-- OpenPyXL (para exportación a Excel)
-- Coverage (para pruebas)
+**Generate realistic synthetic datasets for televisions with customizable features**
 
-## Puntos Extra
+</div>
 
-- Más del 90% de cobertura de pruebas
-- Visualización de datos generados
-- Exportación a múltiples formatos (CSV, JSON, Excel)
-- Correlaciones realistas entre atributos
+## 📋 Table of Contents
+- [📺 Television Data Generator](#-television-data-generator)
+  - [📋 Table of Contents](#-table-of-contents)
+  - [🔍 Overview](#-overview)
+  - [✨ Features](#-features)
+  - [🚀 Installation](#-installation)
+  - [💻 Usage](#-usage)
+    - [Run the Main Script](#run-the-main-script)
+    - [Use as a Module](#use-as-a-module)
+  - [📊 Generated Columns](#-generated-columns)
+  - [📈 Visualizations](#-visualizations)
+    - [1. Distribución de Precios por Marca](#1-distribución-de-precios-por-marca)
+    - [2. Distribución de Tamaños de Pantalla](#2-distribución-de-tamaños-de-pantalla)
+    - [3. Relación entre Precio y Calificación de Calidad](#3-relación-entre-precio-y-calificación-de-calidad)
+    - [4. Tecnologías de Pantalla por Segmento de Precio](#4-tecnologías-de-pantalla-por-segmento-de-precio)
+    - [5. Mapa de Calor de Correlación](#5-mapa-de-calor-de-correlación)
+  - [🧪 Testing](#-testing)
+  - [👤 Author](#-author)
+  - [📄 License](#-license)
 
-## Público Objetivo
+## 🔍 Overview
 
-- Estudiantes de la clase de algoritmos
-- Desarrolladores de aplicaciones de comercio electrónico
-- Analistas de datos que necesiten conjuntos de datos de prueba
-- Estudiantes de ciencia de datos que busquen datos para prácticas
+This project generates synthetic datasets for televisions, including attributes like brand, price, screen size, and quality ratings. Designed for data analysis, visualization, and machine learning, it produces realistic data with customizable row counts and export formats (CSV, JSON, Excel). The project achieves over 90% test coverage and includes visualizations to explore the generated data.
 
-## Instrucciones de Configuración
+**Target Audience:**
+- Students of algorithms and data science
+- E-commerce application developers
+- Data analysts needing test datasets
 
-1. Clonar el repositorio
+## ✨ Features
+
+- ✅ Generates ~30 columns of realistic television attributes
+- ✅ Supports variable row counts and multiple export formats (CSV, JSON, Excel)
+- ✅ Includes unique product identifiers (PRODUCT_SKU)
+- ✅ Achieves >90% test coverage using TDD
+- ✅ Provides data visualizations for insights
+- ✅ Models realistic correlations between attributes (e.g., price vs. quality)
+
+## 🚀 Installation
+
 ```bash
+# Clone the repository
 git clone https://github.com/[usuario]/data_generator.git
 cd data_generator
-```
 
-2. Crear y activar un entorno virtual (opcional pero recomendado)
-```bash
+# Create and activate virtual environment (recommended)
 python -m venv venv
-# En Windows
-venv\Scripts\activate
-# En Unix o MacOS
-source venv/bin/activate
-```
+# On Windows: venv\Scripts\activate
+# On Unix/MacOS: source venv/bin/activate
 
-3. Instalar las dependencias
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-## Cómo Ejecutar
+**Requirements:**
+- Python 3.8+
+- Libraries: pandas, numpy, openpyxl, coverage
 
-### Usando el script principal
+## 💻 Usage
+
+### Run the Main Script
+
+Generate a dataset with customizable options:
 
 ```bash
 python main.py --rows 1000 --output televisions.csv --format csv
 ```
 
-Opciones disponibles:
-- `--rows`: Número de filas a generar (por defecto: 100)
-- `--output`: Nombre del archivo de salida (por defecto: television_data.csv)
-- `--format`: Formato del archivo (opciones: csv, json, excel; por defecto: csv)
+**Options:**
+- `--rows`: Number of rows to generate (default: 100)
+- `--output`: Output file name (default: television_data.csv)
+- `--format`: File format (csv, json, excel; default: csv)
 
-### Usando como módulo
+### Use as a Module
 
 ```python
 from data_generator_app.data_generator import generate_television_data
 
-# Generar 100 registros
+# Generate 100 records
 data = generate_television_data(100)
 
-# Guardar a CSV
+# Save to CSV
 data.to_csv("television_data.csv", index=False)
 ```
 
-## Ejecutar Pruebas
+## 📊 Generated Columns
 
-Para ejecutar todas las pruebas:
+The dataset includes ~30 columns with realistic attributes:
+
+1. **PRODUCT_SKU**: Unique product identifier
+2. **BRAND**: Manufacturer (e.g., Samsung, LG, Sony)
+3. **MODEL**: Specific model number
+4. **DISPLAY_TECHNOLOGY**: Screen type (LED, OLED, QLED)
+5. **SCREEN_SIZE_INCHES**: Diagonal screen size (inches)
+6. **RESOLUTION**: Display resolution (HD, Full HD, 4K UHD, 8K UHD)
+7. **PRICE_USD**: Price in USD
+8. **QUALITY_RATING**: Quality score (1-5)
+9. **REFRESH_RATE_HZ**: Refresh rate (60, 120, 144 Hz)
+10. **SMART_TV_PLATFORM**: Smart TV OS (Android TV, WebOS, Tizen)
+11. **HDR_FORMATS**: Supported HDR formats (HDR10, Dolby Vision)
+12. **HDMI_PORTS**: Number of HDMI ports
+13. **USB_PORTS**: Number of USB ports
+14. **AUDIO_OUTPUT_WATTS**: Audio power output (watts)
+15. **HAS_WIFI**: WiFi support (True/False)
+16. **HAS_BLUETOOTH**: Bluetooth support (True/False)
+17. **VOICE_ASSISTANT**: Voice assistant (Alexa, Google Assistant)
+18. **TUNER_TYPE**: Tuner type (ATSC, DVB-T2)
+19. **MANUFACTURE_YEAR**: Year of manufacture
+20. **ENERGY_RATING**: Energy efficiency rating (A+++, A++)
+21. **COUNTRY_OF_ORIGIN**: Manufacturing country
+22. **SUPPLIER_ID**: Supplier identifier
+23. **WAREHOUSE_LOCATION**: Storage location
+24. **STOCK_QUANTITY**: Inventory count
+25. **CUSTOMER_RATING**: Average customer rating (1-5)
+26. **IS_CURVED**: Curved screen (True/False)
+27. **WEIGHT_KG**: Weight (kilograms)
+28. **DIMENSIONS_CM**: Dimensions (WxHxD, cm)
+29. **WARRANTY_YEARS**: Warranty duration (years)
+30. **RELEASE_DATE**: Launch date
+31. **COLOR**: TV color
+32. **ECO_CERTIFICATIONS**: Environmental certifications
+33. **POWER_CONSUMPTION_WATTS**: Power usage (watts)
+34. **INPUT_LAG_MS**: Input lag (ms, for gaming)
+
+## 📈 Visualizations
+
+Generate visualizations to explore the dataset:
 
 ```bash
-python -m unittest discover -s tests
+python generate_visualizations.py
 ```
 
-Para ejecutar pruebas con cobertura:
+Visualizations are saved in the `visualizations/` directory:
+
+### 1. Distribución de Precios por Marca
+
+![Distribución de Precios por Marca](visualizations/price_by_brand.png)
+
+Este gráfico de caja muestra la distribución de precios para cada marca de televisor, permitiendo comparar los rangos de precios y valores atípicos entre diferentes fabricantes.
+
+### 2. Distribución de Tamaños de Pantalla
+
+![Distribución de Tamaños de Pantalla](visualizations/screen_size_distribution.png)
+
+Esta gráfica de barras muestra la frecuencia de cada tamaño de pantalla en el conjunto de datos, revelando las tendencias en las preferencias de tamaño.
+
+### 3. Relación entre Precio y Calificación de Calidad
+
+![Relación entre Precio y Calificación](visualizations/price_vs_rating.png)
+
+Este gráfico de dispersión ilustra la correlación entre el precio y la calificación de calidad, segmentado por tecnología de pantalla y tamaño (representado por el tamaño de los puntos).
+
+### 4. Tecnologías de Pantalla por Segmento de Precio
+
+![Tecnologías por Segmento de Precio](visualizations/tech_by_price_segment.png)
+
+Esta gráfica de barras apiladas muestra la distribución de tecnologías de pantalla dentro de cada segmento de precio, ilustrando qué tecnologías son más comunes en diferentes rangos de precio.
+
+### 5. Mapa de Calor de Correlación
+
+![Mapa de Calor de Correlación](visualizations/correlation_heatmap.png)
+
+Este mapa de calor visualiza las correlaciones entre variables numéricas en el conjunto de datos, ayudando a identificar relaciones fuertes entre diferentes atributos.
+
+
+
+<div align="center">
+
+| Visualization | Description | File |
+|---------------|-------------|------|
+| **Price by Brand** | Box plot of price distribution by brand | `price_by_brand.png` |
+| **Screen Size Distribution** | Bar chart of screen size frequencies | `screen_size_distribution.png` |
+| **Price vs. Quality** | Scatter plot of price vs. quality rating | `price_vs_rating.png` |
+| **Tech by Price Segment** | Stacked bar chart of display tech by price | `tech_by_price_segment.png` |
+| **Correlation Heatmap** | Heatmap of numeric attribute correlations | `correlation_heatmap.png` |
+
+</div>
+
+<details>
+<summary>Sample Visualizations</summary>
+<div align="center">
+<img src="visualizations/price_by_brand.png" alt="Price by Brand" width="80%">
+<img src="visualizations/screen_size_distribution.png" alt="Screen Size Distribution" width="80%">
+<img src="visualizations/price_vs_rating.png" alt="Price vs. Quality" width="80%">
+</div>
+</details>
+
+## 🧪 Testing
+
+Run tests to ensure code reliability:
 
 ```bash
+# Run all tests
+python -m unittest discover -s tests
+
+# Run tests with coverage
 coverage run -m unittest discover -s tests
 coverage report
-coverage html  # Genera informe HTML detallado
+coverage html  # Generate detailed HTML report
 ```
 
-## Descripción de las Columnas
+**Test Coverage**: Achieves >90% coverage, ensuring robust functionality.
 
-El conjunto de datos generado incluye las siguientes columnas (aproximadamente 30):
+***Commands ****
 
-1. **PRODUCT_SKU**: Identificador único del producto (clave primaria)
-2. **BRAND**: Marca del televisor (Samsung, LG, Sony, etc.)
-3. **MODEL**: Número de modelo específico 
-4. **DISPLAY_TECHNOLOGY**: Tecnología de pantalla (LED, OLED, QLED, etc.)
-5. **SCREEN_SIZE_INCHES**: Tamaño diagonal de la pantalla en pulgadas
-6. **RESOLUTION**: Resolución de la pantalla (HD, Full HD, 4K UHD, 8K UHD)
-7. **PRICE_USD**: Precio en dólares estadounidenses
-8. **QUALITY_RATING**: Calificación de calidad (1-5)
-9. **REFRESH_RATE_HZ**: Tasa de refresco en Hz (60, 120, 144, etc.)
-10. **SMART_TV_PLATFORM**: Plataforma de Smart TV (Android TV, WebOS, Tizen, etc.)
-11. **HDR_FORMATS**: Formatos HDR soportados (HDR10, Dolby Vision, etc.)
-12. **HDMI_PORTS**: Número de puertos HDMI
-13. **USB_PORTS**: Número de puertos USB
-14. **AUDIO_OUTPUT_WATTS**: Potencia de salida de audio en watts
-15. **HAS_WIFI**: Indica si el televisor tiene WiFi (booleano)
-16. **HAS_BLUETOOTH**: Indica si el televisor tiene Bluetooth (booleano)
-17. **VOICE_ASSISTANT**: Asistente de voz soportado (Alexa, Google Assistant, etc.)
-18. **TUNER_TYPE**: Tipo de sintonizador (ATSC, DVB-T2, etc.)
-19. **MANUFACTURE_YEAR**: Año de fabricación
-20. **ENERGY_RATING**: Clasificación de eficiencia energética (A+++, A++, etc.)
-21. **COUNTRY_OF_ORIGIN**: País de fabricación
-22. **SUPPLIER_ID**: Identificador del proveedor
-23. **WAREHOUSE_LOCATION**: Ubicación del almacén
-24. **STOCK_QUANTITY**: Cantidad en inventario
-25. **CUSTOMER_RATING**: Calificación promedio de clientes (1-5)
-26. **IS_CURVED**: Indica si la pantalla es curva (booleano)
-27. **WEIGHT_KG**: Peso en kilogramos
-28. **DIMENSIONS_CM**: Dimensiones en centímetros (AnchoxAltoxProfundidad)
-29. **WARRANTY_YEARS**: Años de garantía
-30. **RELEASE_DATE**: Fecha de lanzamiento
-31. **COLOR**: Color del televisor
-32. **ECO_CERTIFICATIONS**: Certificaciones ecológicas
-33. **POWER_CONSUMPTION_WATTS**: Consumo de energía en watts
-34. **INPUT_LAG_MS**: Retardo de entrada en milisegundos (importante para gaming)
+For generate information
 
-## Requisitos Cumplidos
+```bash
+py main.py --rows 100000 --format json --output television_data.json
+```
 
-- ✅ Repositorio público en GitHub
-- ✅ Desarrollo basado en pruebas (TDD) con más del 90% de cobertura
-- ✅ Una tabla con aproximadamente 30 columnas
-- ✅ Número variable de filas
-- ✅ Clave única (PRODUCT_SKU)
-- ✅ Semejanza mínima con datos del mundo real
+For Generate graphics
+
+```bash
+py generate_visualizations.py
+```
+## 👤 Author
+
+- **Author**: [Diego Cardenas](https://github.com/diegcard)
+- **Institution**: [Your Institution, if applicable]
+- **Course**: Algorithms and Data Representation
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+<div align="center">
+⭐ Star this repository if you found it useful! ⭐
+</div>
