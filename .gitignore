@@ -1,0 +1,39 @@
+# Archivos de byte compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / empaquetado
+dist/
+build/
+*.egg-info/
+
+# Entornos virtuales
+venv/
+env/
+ENV/
+
+# Archivos generados por IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos de cache de pytest
+.pytest_cache/
+
+# Archivos de cobertura
+.coverage
+htmlcov/
+
+# Archivos de datos generados
+*.csv
+*.json
+*.xlsx
+*.db
+
+# Archivos de log
+*.log
+
+# Archivos de configuración local
+.env
